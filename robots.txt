@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cinepro.cc/sitemap.xml
+Sitemap: https://docs.cinepro.cc/sitemap.xml
