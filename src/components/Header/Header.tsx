@@ -93,7 +93,7 @@ const GITHUB_REPOS: {
         description: "The source for cinepro.cc and all marketing content.",
         icon: Code2,
         badge: "Website",
-    }
+    },
 ]
 
 // ─── ListItem (mirrors shadcn NavigationMenu demo pattern) ────────────────────
@@ -116,13 +116,16 @@ function ListItem({
 }) {
     const inner = (
         <div className="flex flex-col gap-1 text-sm">
-            <div className="flex items-center gap-1.5 font-medium leading-none">
+            <div className="flex items-center gap-1.5 leading-none font-medium">
                 {Icon && (
-                    <Icon className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden />
+                    <Icon
+                        className="h-3.5 w-3.5 shrink-0 text-primary"
+                        aria-hidden
+                    />
                 )}
                 {title}
                 {badge && (
-                    <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-primary">
+                    <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-[0.6rem] font-semibold tracking-wide text-primary uppercase">
                         {badge}
                     </span>
                 )}
@@ -140,7 +143,7 @@ function ListItem({
                         target="_blank"
                         rel="noopener noreferrer"
                         className={cn(
-                            "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                            "block rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             className
                         )}
                     >
@@ -150,7 +153,7 @@ function ListItem({
                     <Link
                         to={href}
                         className={cn(
-                            "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                            "block rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                             className
                         )}
                     >
@@ -184,7 +187,9 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
     const location = useLocation()
 
     const isActive = (path: string) =>
-        path === "/" ? location.pathname === "/" : location.pathname.startsWith(path)
+        path === "/"
+            ? location.pathname === "/"
+            : location.pathname.startsWith(path)
 
     return (
         <header className="sticky top-0 z-50">
@@ -221,8 +226,14 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                                         )}
                                         asChild
                                     >
-                                        <Link to={to} className="flex items-center gap-1.5">
-                                            <Icon className="h-3.5 w-3.5" aria-hidden />
+                                        <Link
+                                            to={to}
+                                            className="flex items-center gap-1.5"
+                                        >
+                                            <Icon
+                                                className="h-3.5 w-3.5"
+                                                aria-hidden
+                                            />
                                             {label}
                                         </Link>
                                     </NavigationMenuLink>
@@ -232,8 +243,12 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             {/* Explore dropdown */}
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>
-                                    <ScreenShare className="mr-1.5 h-3.5 w-3.5" aria-hidden />
-                                    Explore</NavigationMenuTrigger>
+                                    <ScreenShare
+                                        className="mr-1.5 h-3.5 w-3.5"
+                                        aria-hidden
+                                    />
+                                    Explore
+                                </NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <ul className="grid w-80 gap-1 p-2">
                                         {EXPLORE_LINKS.map((link) => (
@@ -254,7 +269,10 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             {/* GitHub dropdown */}
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>
-                                    <GitGraph className="mr-1.5 h-3.5 w-3.5" aria-hidden />
+                                    <GitGraph
+                                        className="mr-1.5 h-3.5 w-3.5"
+                                        aria-hidden
+                                    />
                                     GitHub
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
@@ -281,10 +299,17 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                                                 className="flex items-center justify-between rounded-md px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                                             >
                                                 <span className="flex items-center gap-1.5">
-                                                    <GitGraph className="h-3.5 w-3.5" aria-hidden />
-                                                    View all repositories on GitHub
+                                                    <GitGraph
+                                                        className="h-3.5 w-3.5"
+                                                        aria-hidden
+                                                    />
+                                                    View all repositories on
+                                                    GitHub
                                                 </span>
-                                                <ChevronRight className="h-3 w-3" aria-hidden />
+                                                <ChevronRight
+                                                    className="h-3 w-3"
+                                                    aria-hidden
+                                                />
                                             </a>
                                         </div>
                                     </div>
@@ -297,7 +322,10 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                     <div className="flex items-center gap-2">
                         <ThemeToggle />
 
-                        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                        <Sheet
+                            open={mobileMenuOpen}
+                            onOpenChange={setMobileMenuOpen}
+                        >
                             <SheetTrigger asChild>
                                 <Button
                                     variant="ghost"
@@ -310,13 +338,18 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                                 </Button>
                             </SheetTrigger>
 
-                            <SheetContent side="right" className="flex w-72 flex-col gap-0 px-4 pt-6">
+                            <SheetContent
+                                side="right"
+                                className="flex w-72 flex-col gap-0 px-4 pt-6"
+                            >
                                 <SheetHeader className="mb-4">
                                     <SheetTitle asChild>
                                         <Link
                                             to="/"
                                             className="flex items-center gap-2.5"
-                                            onClick={() => setMobileMenuOpen(false)}
+                                            onClick={() =>
+                                                setMobileMenuOpen(false)
+                                            }
                                         >
                                             <CineProLogo />
                                             <span className="text-base font-bold tracking-tight">
@@ -328,58 +361,83 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
 
                                 <nav className="flex flex-col gap-1 overflow-y-auto">
                                     {/* Internal */}
-                                    {NAV_LINKS.map(({ to, label, icon: Icon }) => (
-                                        <Link
-                                            key={to}
-                                            to={to}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className={cn(
-                                                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                                                isActive(to) && "bg-accent font-semibold text-accent-foreground"
-                                            )}
-                                        >
-                                            <Icon className="h-4 w-4 shrink-0" aria-hidden />
-                                            {label}
-                                        </Link>
-                                    ))}
+                                    {NAV_LINKS.map(
+                                        ({ to, label, icon: Icon }) => (
+                                            <Link
+                                                key={to}
+                                                to={to}
+                                                onClick={() =>
+                                                    setMobileMenuOpen(false)
+                                                }
+                                                className={cn(
+                                                    "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                                                    isActive(to) &&
+                                                        "bg-accent font-semibold text-accent-foreground"
+                                                )}
+                                            >
+                                                <Icon
+                                                    className="h-4 w-4 shrink-0"
+                                                    aria-hidden
+                                                />
+                                                {label}
+                                            </Link>
+                                        )
+                                    )}
 
                                     {/* Separator + Explore */}
-                                    <p className="mt-3 mb-1 px-3 text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
+                                    <p className="mt-3 mb-1 px-3 text-[0.65rem] font-semibold tracking-widest text-muted-foreground uppercase">
                                         Explore
                                     </p>
-                                    {EXPLORE_LINKS.map(({ href, label, icon: Icon }) => (
-                                        <a
-                                            key={href}
-                                            href={href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                                        >
-                                            <Icon className="h-4 w-4 shrink-0" aria-hidden />
-                                            {label}
-                                        </a>
-                                    ))}
+                                    {EXPLORE_LINKS.map(
+                                        ({ href, label, icon: Icon }) => (
+                                            <a
+                                                key={href}
+                                                href={href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() =>
+                                                    setMobileMenuOpen(false)
+                                                }
+                                                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                                            >
+                                                <Icon
+                                                    className="h-4 w-4 shrink-0"
+                                                    aria-hidden
+                                                />
+                                                {label}
+                                            </a>
+                                        )
+                                    )}
 
                                     {/* Separator + GitHub */}
-                                    <p className="mt-3 mb-1 px-3 text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
+                                    <p className="mt-3 mb-1 px-3 text-[0.65rem] font-semibold tracking-widest text-muted-foreground uppercase">
                                         GitHub
                                     </p>
-                                    {GITHUB_REPOS.map(({ href, label, icon: Icon }) => (
-                                        <a
-                                            key={href}
-                                            href={href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                                        >
-                                            <Icon className="h-4 w-4 shrink-0" aria-hidden />
-                                            {label}
-                                        </a>
-                                    ))}
+                                    {GITHUB_REPOS.map(
+                                        ({ href, label, icon: Icon }) => (
+                                            <a
+                                                key={href}
+                                                href={href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={() =>
+                                                    setMobileMenuOpen(false)
+                                                }
+                                                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                                            >
+                                                <Icon
+                                                    className="h-4 w-4 shrink-0"
+                                                    aria-hidden
+                                                />
+                                                {label}
+                                            </a>
+                                        )
+                                    )}
 
-                                    <div className="my-2 h-px bg-border" role="separator" />
+                                    <div
+                                        className="my-2 h-px bg-border"
+                                        role="separator"
+                                    />
 
                                     <a
                                         href="https://github.com/cinepro-org"
@@ -388,7 +446,10 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                                         onClick={() => setMobileMenuOpen(false)}
                                         className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                                     >
-                                        <GitGraph className="h-4 w-4 shrink-0" aria-hidden />
+                                        <GitGraph
+                                            className="h-4 w-4 shrink-0"
+                                            aria-hidden
+                                        />
                                         View all on GitHub
                                     </a>
                                 </nav>

@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "@/pages/Home/Home.tsx"
-import NotFound from "@/pages/404/NotFound.tsx"
+import { lazy, Suspense } from "react"
 import { Toaster } from "@/components/ui/sonner.tsx"
 import Footer from "@/components/Footer/Footer.tsx"
 import Header from "@/components/Header/Header"
+
+const Home = lazy(() => import("@/pages/Home/Home"))
+const NotFound = lazy(() => import("@/pages/404/NotFound"))
 
 function App() {
     return (
@@ -36,10 +38,12 @@ function App() {
 
                     <main className="flex-1">
                         <section className="container mx-auto flex min-h-[calc(100vh-8rem)] flex-col px-4 py-4 sm:px-6 lg:px-8">
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="*" element={<NotFound />} />
-                            </Routes>
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="*" element={<NotFound />} />
+                                </Routes>
+                            </Suspense>{" "}
                         </section>
                     </main>
 

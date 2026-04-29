@@ -2,7 +2,14 @@ import { Link } from "react-router-dom"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
-import { GitGraph, BookOpen, LayoutPanelTop, Server, Mail, MessageSquare } from "lucide-react"
+import {
+    GitGraph,
+    BookOpen,
+    LayoutPanelTop,
+    Server,
+    Mail,
+    MessageSquare,
+} from "lucide-react"
 import type { JSX } from "react"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -52,35 +59,75 @@ export default function Footer() {
             {
                 title: "GitHub",
                 links: [
-                    { label: "cinepro-org", url: "https://github.com/cinepro-org", icon: GitGraph },
-                    { label: "core", url: "https://github.com/cinepro-org/core", icon: Server },
-                    { label: "ui", url: "https://github.com/cinepro-org/ui", icon: LayoutPanelTop },
-                    { label: "docs", url: "https://github.com/cinepro-org/docs", icon: BookOpen },
+                    {
+                        label: "cinepro-org",
+                        url: "https://github.com/cinepro-org",
+                        icon: GitGraph,
+                    },
+                    {
+                        label: "core",
+                        url: "https://github.com/cinepro-org/core",
+                        icon: Server,
+                    },
+                    {
+                        label: "ui",
+                        url: "https://github.com/cinepro-org/ui",
+                        icon: LayoutPanelTop,
+                    },
+                    {
+                        label: "docs",
+                        url: "https://github.com/cinepro-org/docs",
+                        icon: BookOpen,
+                    },
                 ],
             },
             {
                 title: "Services",
                 links: [
-                    { label: "docs.cinepro.cc", url: "https://docs.cinepro.cc", icon: BookOpen },
-                    { label: "ui.cinepro.cc", url: "https://ui.cinepro.cc", icon: LayoutPanelTop },
+                    {
+                        label: "docs.cinepro.cc",
+                        url: "https://docs.cinepro.cc",
+                        icon: BookOpen,
+                    },
+                    {
+                        label: "ui.cinepro.cc",
+                        url: "https://ui.cinepro.cc",
+                        icon: LayoutPanelTop,
+                    },
                 ],
             },
             {
                 title: "Contact",
                 links: [
-                    { label: "General Inquiries", url: "mailto:contact@cinepro.cc", icon: Mail },
-                    { label: "GitHub Discussions", url: "https://github.com/orgs/cinepro-org/discussions", icon: MessageSquare },
-                    { label: "Legal", url: "mailto:legal@cinepro.cc", icon: Mail },
+                    {
+                        label: "General Inquiries",
+                        url: "mailto:contact@cinepro.cc",
+                        icon: Mail,
+                    },
+                    {
+                        label: "GitHub Discussions",
+                        url: "https://github.com/orgs/cinepro-org/discussions",
+                        icon: MessageSquare,
+                    },
+                    {
+                        label: "Legal",
+                        url: "mailto:legal@cinepro.cc",
+                        icon: Mail,
+                    },
                 ],
             },
         ],
         warrantyDisclaimer: (
-            <>© 2025 - {new Date().getFullYear()} CinePro Foundation. All rights reserved.</>
+            <>
+                © 2025 - {new Date().getFullYear()} CinePro Foundation. All
+                rights reserved.
+            </>
         ),
         buttons: [
             {
                 label: "Cookie Policy",
-                onClick: () => toast.success("We do not use or collect any cookies 💪"),
+                onClick: () =>
+                    toast.success("We do not use or collect any cookies 💪"),
             },
         ],
     }
@@ -88,10 +135,8 @@ export default function Footer() {
     return (
         <footer className="mt-auto border-t border-border/60 backdrop-blur-md">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-
                 {/* Top grid */}
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
-
                     {/* Brand column */}
                     <div className="col-span-2 md:col-span-1">
                         <Link
@@ -123,7 +168,7 @@ export default function Footer() {
                     {/* Link sections */}
                     {footerData.sections.map((section) => (
                         <div key={section.title}>
-                            <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-foreground">
+                            <h3 className="mb-3 text-xs font-semibold tracking-widest text-foreground uppercase">
                                 {section.title}
                             </h3>
                             <ul className="space-y-2">
@@ -131,8 +176,16 @@ export default function Footer() {
                                     <li key={link.label}>
                                         <a
                                             href={link.url}
-                                            target={link.url.startsWith("mailto:") ? undefined : "_blank"}
-                                            rel={link.url.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                                            target={
+                                                link.url.startsWith("mailto:")
+                                                    ? undefined
+                                                    : "_blank"
+                                            }
+                                            rel={
+                                                link.url.startsWith("mailto:")
+                                                    ? undefined
+                                                    : "noopener noreferrer"
+                                            }
                                             className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground sm:text-sm"
                                         >
                                             {link.icon && (
