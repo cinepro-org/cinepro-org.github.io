@@ -35,5 +35,5 @@ jobs:
                   publish_dir: ./dist
                   user_name: 'github-actions[bot]'
                   user_email: 'github-actions[bot]@users.noreply.github.com'
-                  keep_files: false
+                  keep_files: true
                   commit_message: 'Deploy to GitHub Pages'
