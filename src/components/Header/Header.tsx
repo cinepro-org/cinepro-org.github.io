@@ -196,7 +196,7 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
             <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
                 <div
                     className={cn(
-                        "flex h-14 items-center justify-between rounded-2xl border border-border/60 bg-background/70 px-4 backdrop-blur-md supports-[backdrop-filter]:bg-background/60",
+                        "flex h-14 items-center justify-between rounded-2xl border border-border/60 bg-background/80 px-4 w-full border-b border-border/40 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/60",
                         shadow && "shadow-lg"
                     )}
                 >
@@ -211,7 +211,6 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             CinePro
                         </span>
                     </Link>
-
                     {/* Desktop nav */}
                     <NavigationMenu className="hidden md:flex">
                         <NavigationMenuList>
@@ -317,7 +316,6 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-
                     {/* Right: theme toggle + mobile */}
                     <div className="flex items-center gap-2">
                         <ThemeToggle />

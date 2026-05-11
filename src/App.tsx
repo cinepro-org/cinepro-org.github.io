@@ -3,14 +3,20 @@ import { lazy, Suspense } from "react"
 import { Toaster } from "@/components/ui/sonner.tsx"
 import Footer from "@/components/Footer/Footer.tsx"
 import Header from "@/components/Header/Header"
+import Lenis from "lenis"
 
 const Home = lazy(() => import("@/pages/Home/Home"))
 const NotFound = lazy(() => import("@/pages/404/NotFound"))
 
 function App() {
+    new Lenis({
+        autoRaf: true,
+    })
+
     return (
         <BrowserRouter>
-            <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+            <Header />
+            <div className="top-0 mt-[-13vh] relative min-h-screen overflow-x-hidden bg-background text-foreground">
                 {/* Background glow */}
                 <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                     <div
@@ -33,9 +39,7 @@ function App() {
                 </div>
 
                 {/* Foreground layout */}
-                <div className="relative z-10 flex min-h-screen flex-col">
-                    <Header />
-
+                <div className="z-10 flex min-h-screen flex-col">
                     <main className="flex-1">
                         <section className="container mx-auto flex min-h-[calc(100vh-8rem)] flex-col px-4 py-4 sm:px-6 lg:px-8">
                             <Suspense fallback={<div>Loading...</div>}>

@@ -16,7 +16,7 @@ export default function Home() {
         <main className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
             <section className="container mx-auto flex flex-col items-center px-4 pb-16 text-center sm:pt-10">
                 {/* Hero badge */}
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+                <div className="mt-8 mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
                     <span className="flex h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
                     <span className="tracking-[0.18em] uppercase">
                         CinePro Streaming Ecosystem
